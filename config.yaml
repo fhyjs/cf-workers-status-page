@@ -1,17 +1,17 @@
 settings:
-  title: 'Status Page'
+  title: '系统状态显示'
   url: 'https://status.hanana2.link' # used for Slack messages
   logo: logo-192x192.png # image in ./public/ folder
   daysInHistogram: 90 # number of days you want to display in histogram
   collectResponseTimes: true # collects avg response times from CRON locations
 
-  allmonitorsOperational: 'All Systems Operational'
-  notAllmonitorsOperational: 'Not All Systems Operational'
-  monitorLabelOperational: 'Operational'
-  monitorLabelNotOperational: 'Not Operational'
-  monitorLabelNoData: 'No data'
-  dayInHistogramNoData: 'No data'
-  dayInHistogramOperational: 'All good'
+  allmonitorsOperational: '所有系统都在正常工作'
+  notAllmonitorsOperational: '部分系统正常工作'
+  monitorLabelOperational: '工作中'
+  monitorLabelNotOperational: '已离线'
+  monitorLabelNoData: '暂无数据'
+  dayInHistogramNoData: '暂无数据'
+  dayInHistogramOperational: '非常好'
   dayInHistogramNotOperational: ' incident(s)' # xx incident(s) recorded
 
 monitors:
@@ -24,16 +24,27 @@ monitors:
     followRedirect: false # should fetch follow redirects, default=false
     linkable: false # allows the title to be a link, default=true
 
-  - id: www-cloudflare-com
-    name: www.cloudflare.com
-    description: 'Built for anything connected to the Internet.'
-    url: 'https://www.cloudflare.com'
+  - id: hanana2-link
+    name: hanana2.link
+    description: 'HANANA中转站点.'
+    url: 'https://hanana2.link'
     method: GET
     expectStatus: 200
     linkable: true # allows the title to be a link, default=true
 
-  - id: blog-cloudflare-com
-    name: The Cloudflare Blog
-    url: 'https://blog.cloudflare.com/'
+  - id: cfb-hanana-eu-org
+    name: cfb.hanana.eu.org
+    url: 'https://cfb.hanana.eu.org:2053/'
+    description: 'HANANA全球站点'
     method: GET
     expectStatus: 200
+    linkable: true
+
+    - id: inc-hanana-eu-org
+    name: inc.hanana.eu.org
+    url: 'https://inc.hanana.eu.org:2053/'
+    description: 'HANANA国内站点'
+    method: GET
+    expectStatus: 200
+    linkable: true
+
