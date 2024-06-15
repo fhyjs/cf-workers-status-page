@@ -40,7 +40,7 @@ monitors:
     expectStatus: 200
     linkable: true
 
-    - id: inc-hanana-eu-org
+  - id: inc-hanana-eu-org
     name: inc.hanana.eu.org
     url: 'https://inc.hanana.eu.org:2053/'
     description: 'HANANA国内站点'
